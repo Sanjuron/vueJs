@@ -58,3 +58,5 @@ Les Key Modifiers
 **2-way data binding** grâce à `v-model`
 
     v-html='' est une directive pour entrer du html brut dans un template
+
+**computed** est un mot-réservé qui permet de ne lancer qu'une fois les fonctions qui se trouvent à l'intérieur. 
