@@ -15,20 +15,9 @@
 		<button v-on:click='decrease'>Diminuer</button>
 		<h2>Compteur : {{counter}}</h2>
 
-		<!-- mouvemove : au mouvement de la souris -->
-		<canvas v-on:mousemove='coords'>
-
-		</canvas>
-		<p>{{x}} / {{y}}</p>
-
-		<div v-on:click='foo'>
-			<p>lorem ipsum</p>
-			<button v-on:click.stop='foo'>Clique-moi</button>
-		</div>
-
-		<form v-on:submit.prevent='onSubmit'>
-			<button>Valider</button>
-		</form>
+		<p>Nom</p>
+		<!-- key modifier qui prend en compte une touche appuyée. Uniquement la touche entrée -->
+		<input type="text" v-on:keyup.enter='inpFunc'>
 
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -40,9 +29,7 @@
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				counter: 0,
-				//initialisation des coordonnées à 0
-				x: 0,
-				y: 0,
+
 			},
 			// dans methods on crée les fonctions et méthodes
 			methods: {
@@ -53,15 +40,9 @@
 				decrease : function(){
 					this.counter--;
 				},
-				//récupère tous les événements attachés à mousemove
-				coords : function(e){
-					console.log(e)
-					this.x = e.offsetX;
-					this.y = e.offsetY;
+				inpFunc: function(){
+					console.log("touché appuyée")
 				},
-				foo: function(){
-					console.log('cliqué');
-				}
 			}
 		})
 	</script>

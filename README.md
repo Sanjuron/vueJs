@@ -43,3 +43,13 @@ Les Events Modifiers
 `.stop` stoppe la propagation des événements
 
 `.prevent` empêche le rechargement de la page
+
+Les Key Modifiers
+-----------------
+
+**Un événement qui ne s'active que si l'on appuie sur une touche (key) en particulier.** 
+
+    v-on:keyup // key modifier qui enregistre les touches appuyées
+
+[liste des key modifiers](https://fr.vuejs.org/v2/guide/events.html)
+
