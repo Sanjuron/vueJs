@@ -56,3 +56,5 @@ Les Key Modifiers
 ----------------------
 
 **2-way data binding** grâce à `v-model`
+
+    v-html='' est une directive pour entrer du html brut dans un template

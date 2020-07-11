@@ -15,10 +15,8 @@
 		<button v-on:click='decrease'>Diminuer</button>
 		<h2>Compteur : {{counter}}</h2>
 
-		<p>Nom</p>
-		<!-- 2-way data binding. v-model envoie directement e.target.value de l'input dans la variable value -->
-		<input type="text" v-model='value'>
-		<p>{{value}}</p>
+		<!-- directive pour entrer du htlm brut dans un template -->
+		<p v-html='htmlBrut'></p>
 
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -30,7 +28,8 @@
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				counter: 0,
-				value: ""
+				value: "",
+				htmlBrut: "<p>Du html brut</p>"
 			},
 			// dans methods on crée les fonctions et méthodes
 			methods: {
@@ -40,11 +39,6 @@
 				},
 				decrease : function(){
 					this.counter--;
-				},
-				inpFunc: function(e){
-					console.log("touché appuyée");
-					this.value = e.target.value;
-					console.log(this.value);
 				},
 			}
 		})
