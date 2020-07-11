@@ -22,3 +22,13 @@ l'instance sert à lier le code html à des méthodes, données, et à renvoyer 
 
 **data binding** = lier des attributs en html à Vue. Il faut pour cela ajouter **`v-bind:`** devant l'attribut (`href` ou `src` par exemple).
 
+Les **directives** permettent d'effectuer des actions sur les **templates**; le **DOM**
+**`v-on`** est une directive pour créer des événements : `mouvemove` `click`. 
+
+    // dans la div de l'application
+    v-on:click='handleClick' // pour créer un événement click
+
+    //dans le script, dans methods, log tous les événements associés à la directive click
+    handleClick : function(e){
+        console.log(e)
+    }

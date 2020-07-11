@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="style.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Vue Js</title>
 </head>
+
 <body>
 	<div id="mon-app">
 		<h1>Cours Vue js</h1>
-		<!-- récupère le contenu de txt dans data -->
-		<p>{{txt}}</p>
-		<!-- récupère la fonction presentation -->
-		<p>{{ presentation()}}</p>
-		<!-- v-bind: permet le data binding -->
-		<a v-bind:href="URLVueJS">Le site de Vue Js</a>
+		<!-- v-on permet de rajouter des événements. Ici au clic, incrémentation de la variable compteur -->
+		<button v-on:click='increase'>Augmenter</button>
+		<button v-on:click='decrease'>Diminuer</button>
+		<h2>Compteur : {{counter}}</h2>
+
+		<!-- mouvemove : au mouvement de la souris -->
+		<canvas v-on:mousemove='coords'>
+
+		</canvas>
+		<p>{{x}} / {{y}}</p>
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -23,16 +29,25 @@
 			el: '#mon-app',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				txt: 'Hello World',
-				nb: 10,
-				URLVueJS : 'https://vuejs.org'
+				counter: 0,
+				//initialisation des coordonnées à 0
+				x: 0,
+				y: 0,
 			},
 			// dans methods on crée les fonctions et méthodes
 			methods: {
 				// ne pas utiliser de fonctions fléchées
-				presentation: function(){
-					// si on veut récupérer les datas, il faut les précéder de this
-					return this.txt + this.nb
+				increase : function(){
+					this.counter++;
+				},
+				decrease : function(){
+					this.counter--;
+				},
+				//récupère tous les événements attachés à mousemove
+				coords : function(e){
+					console.log(e)
+					this.x = e.offsetX;
+					this.y = e.offsetY;
 				}
 			}
 		})
