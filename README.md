@@ -32,3 +32,14 @@ Les **directives** permettent d'effectuer des actions sur les **templates**; le 
     handleClick : function(e){
         console.log(e)
     }
+
+Les Events Modifiers
+-------------------
+
+`.once` est un exemple d'*event modifier* Si on l'ajoute à une directive, alors celle-ci ne s'exécute qu'une fois
+
+    v-on:click.once // un seul clic est pris en compte
+
+`.stop` stoppe la propagation des événements
+
+`.prevent` empêche le rechargement de la page

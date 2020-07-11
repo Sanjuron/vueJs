@@ -20,6 +20,16 @@
 
 		</canvas>
 		<p>{{x}} / {{y}}</p>
+
+		<div v-on:click='foo'>
+			<p>lorem ipsum</p>
+			<button v-on:click.stop='foo'>Clique-moi</button>
+		</div>
+
+		<form v-on:submit.prevent='onSubmit'>
+			<button>Valider</button>
+		</form>
+
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -48,6 +58,9 @@
 					console.log(e)
 					this.x = e.offsetX;
 					this.y = e.offsetY;
+				},
+				foo: function(){
+					console.log('cliqué');
 				}
 			}
 		})
