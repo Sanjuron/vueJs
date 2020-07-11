@@ -60,3 +60,5 @@ Les Key Modifiers
     v-html='' est une directive pour entrer du html brut dans un template
 
 **computed** est un mot-réservé qui permet de ne lancer qu'une fois les fonctions qui se trouvent à l'intérieur. 
+
+**watch** autre mot-réservé va lancer une fonction seulement quand une des propriétés de nos données vont changer

@@ -44,11 +44,20 @@
 				
 			},
 			//computed est un mot réservé
-			computed :{ 
+			computed : { 
 				memo : function() {
 					console.log("MEMO s'est lancée");
 					// opération ternaire / le this pour aller chercher counter
 					return this.counter > 10 ? "Supérieur à 10" : "Inférieur à 10";
+				}
+			},
+			//mot réservé : surveille les propriétés des données
+			watch: {
+				counterA: function(){
+					console.log("update");
+					setTimeout(() => { 
+						this.counterA = 0;
+					}, 1500)
 				}
 			}
 		})
