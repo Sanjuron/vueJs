@@ -53,3 +53,6 @@ Les Key Modifiers
 
 [liste des key modifiers](https://fr.vuejs.org/v2/guide/events.html)
 
+----------------------
+
+**2-way data binding** grâce à `v-model`

@@ -16,8 +16,9 @@
 		<h2>Compteur : {{counter}}</h2>
 
 		<p>Nom</p>
-		<!-- key modifier qui prend en compte une touche appuyée. Uniquement la touche entrée -->
-		<input type="text" v-on:keyup.enter='inpFunc'>
+		<!-- 2-way data binding. v-model envoie directement e.target.value de l'input dans la variable value -->
+		<input type="text" v-model='value'>
+		<p>{{value}}</p>
 
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -29,7 +30,7 @@
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				counter: 0,
-
+				value: ""
 			},
 			// dans methods on crée les fonctions et méthodes
 			methods: {
@@ -40,8 +41,10 @@
 				decrease : function(){
 					this.counter--;
 				},
-				inpFunc: function(){
-					console.log("touché appuyée")
+				inpFunc: function(e){
+					console.log("touché appuyée");
+					this.value = e.target.value;
+					console.log(this.value);
 				},
 			}
 		})
