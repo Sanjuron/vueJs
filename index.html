@@ -8,54 +8,44 @@
 </head>
 
 <body>
-	<div id="mon-app">
-		<h1>Cours Vue js</h1>
-		<button v-on:click='togglebox = !togglebox'>Toggle la box</button>
+	<div id="mon-app1">
+		
+		
+	</div>
 
-		<ul>
-			<!-- syntaxe pour la boucle for "i in array" -->
-			<li v-for="number in array"> {{number}}</li>
-		</ul>
-
-		<ul>
-			<!-- syntaxe pour afficher les indexs -->
-			<li v-for="(kuro, i) in kuroArray">{{i}} : {{kuro}}</li>
-		</ul>
-
-		<ul>
-			<!-- syntaxe pour afficher les propriétés et valeurs d'un objet -->
-			<li v-for="(val, props) in objCat">{{props}} : {{val}}</li>
-		</ul>
-
-		<ul>
-			<!-- syntaxe pour afficher les tableaux d'objets -->
-			<li v-for="item in japanMovie">
-				<div v-for="(val, props) in item">{{props}} : {{val}}</div>
-			</li>
-		</ul>
+	<div id="mon-app2">
+		<h1>{{txt}}</h1>
+		<button v-on:click="func1()">Changer</button>
 		
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 	<script>
-		new Vue({
-			el: '#mon-app',
+		const inst1 = new Vue({
+			template: '<h1>{{txt}}</h1>',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				togglebox: true,
-				array: [1,2,3,4,5],
-				kuroArray: ["dodes", "ran", "nora", "ikiru"],
-				objCat: {
-					race: "angora",
-					age: 5,
-					poids: "3kg",
-				},
-				japanMovie: [
-					{director: "Akira Kurosawa", movie: "Barberousse"},
-					{director: " Kenji Mizoguchi", movie: "L'intendant Sansho"},
-				]				
+				txt: "Les films de Kurosawa"
 			},	
+		})
+
+		// pour monter le template d'une instance
+		inst1.$mount()
+		document.getElementById('mon-app1').appendChild(inst1.$el)
+
+		const inst2 = new Vue({
+			el: '#mon-app2',
+			// ici, on met les variables qu'on réutilise dans la div entre accolades
+			data: {
+				txt: "Les films de Mizoguchi"
+			},	
+			methods: {
+				// pour changer une valeur de l'instance 1
+				func1: function(){
+					inst1.txt = "Tu es changé : maintenant tu es Les films d'Ozu"
+				}
+			}
 		})
 	</script>
 
