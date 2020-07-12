@@ -10,13 +10,18 @@
 <body>
 	<div id="mon-app">
 		<h1>Cours Vue js</h1>
-		<button v-on:click='toggleColor = !toggleColor'>Toggle la couleur</button>
-		<!-- on peut mettre la fonction dans un tableau, pour ajouter des propriétés supplément et même des ternaires -->
-		<div v-bind:class="[objCSS, toggleColor ? 'border' : '']">			
-		</div>
-		<!-- Attention à la syntaxe, guillemets et apostrophes -->
-		<p :style="myStyle">Lorem ipsum dolor sit amet.</p>
-	
+		<button v-on:click='togglebox = !togglebox'>Toggle la box</button>
+
+		<!-- v-if affiche si true / else si non. Les deux doivent être collés l'un à l'autre. Si quelque chose entre, alors ça ne fonctionne pas -->
+		<div v-if="togglebox" class="box red"></div>
+		<p v-else="togglebox">Else</p>
+
+		<!-- s'affiche en fonction de la valeur de num dans datas. -->
+		<p v-if="num === 1">La valeur est 1</p>
+		<p v-else-if="num === 2">La valeur est 2</p>
+		<p v-else-if="num === 3">La valeur est 3</p>
+		<p v-else>Ni un, ni deux, ni trois</p>
+		
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -26,26 +31,9 @@
 			el: '#mon-app',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				toggleColor: false,
-				color: 'lightblue',
-				width: 200
+				num: 2,
+				togglebox: false,
 			},	
-			computed : {
-				// ne s'active que lorsque la condition est vérifiée
-				objCSS: function(){
-					return {
-						// récupère toggleColor et associe à box
-						red: this.toggleColor,
-						box: true
-					}
-				},
-				myStyle: function(){
-					return {
-						backgroundColor : this.color,
-						width: this.width + "px"
-					}
-				}
-			}
 		})
 	</script>
 
