@@ -10,17 +10,13 @@
 <body>
 	<div id="mon-app">
 		<h1>Cours Vue js</h1>
-		<!-- v-on permet de rajouter des événements. Ici au clic, incrémentation de la variable compteur -->
-		<button v-on:click='counterA++'>Augmenter</button>
-		<button v-on:click='counterA--'>Diminuer</button>
-		<h2>Compteur : {{counterA}}</h2>
-		<!-- Ne pas oublier les paranthèses pour appeler la méthode  car il n'y a pas d'événement qui va l'appeler  -->
-		<p>{{checkValue()}}||| {{memo}}</p>
-
-		<button v-on:click='counterB++'>Augmenter</button>
-		<p>Compteur : {{counterB}}</p>
-
-
+		<button v-on:click='toggleColor = !toggleColor'>Toggle la couleur</button>
+		<!-- classe dynamique qui ne s'active que lorsque toggleColor est true -->
+		<div class="box" 
+			v-bind:class="{red : toggleColor}"
+			>			
+		</div>
+	
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -30,36 +26,8 @@
 			el: '#mon-app',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				counterA: 0,
-				counterB: 0,				
-			},
-			// dans methods on crée les fonctions et méthodes
-			methods: {
-				// ne pas utiliser de fonctions fléchées
-				checkValue : function() {
-					console.log("la fonction s'est lancée");
-					// opération ternaire / le this pour aller chercher counter
-					return this.counter > 10 ? "Supérieur à 10" : "Inférieur à 10";
-				},
-				
-			},
-			//computed est un mot réservé
-			computed : { 
-				memo : function() {
-					console.log("MEMO s'est lancée");
-					// opération ternaire / le this pour aller chercher counter
-					return this.counter > 10 ? "Supérieur à 10" : "Inférieur à 10";
-				}
-			},
-			//mot réservé : surveille les propriétés des données
-			watch: {
-				counterA: function(){
-					console.log("update");
-					setTimeout(() => { 
-						this.counterA = 0;
-					}, 1500)
-				}
-			}
+				toggleColor: false,								
+			},	
 		})
 	</script>
 
