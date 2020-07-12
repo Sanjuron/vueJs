@@ -64,3 +64,7 @@ Les Key Modifiers
 **watch** autre mot-réservé va lancer une fonction seulement quand une des propriétés de nos données vont changer
 
 *toggle* veut dire basculement
+
+Pour le **inline css**, respecter les conventions:
+- varialbe entre **guillemets**, valeur de lapropriété entre **apostrophes**
+- si nom de propriété composé, alors **camelCase**

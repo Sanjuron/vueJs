@@ -14,6 +14,8 @@
 		<!-- on peut mettre la fonction dans un tableau, pour ajouter des propriétés supplément et même des ternaires -->
 		<div v-bind:class="[objCSS, toggleColor ? 'border' : '']">			
 		</div>
+		<!-- Attention à la syntaxe, guillemets et apostrophes -->
+		<p :style="myStyle">Lorem ipsum dolor sit amet.</p>
 	
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -25,6 +27,8 @@
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				toggleColor: false,
+				color: 'lightblue',
+				width: 200
 			},	
 			computed : {
 				// ne s'active que lorsque la condition est vérifiée
@@ -33,6 +37,12 @@
 						// récupère toggleColor et associe à box
 						red: this.toggleColor,
 						box: true
+					}
+				},
+				myStyle: function(){
+					return {
+						backgroundColor : this.color,
+						width: this.width + "px"
 					}
 				}
 			}
