@@ -70,3 +70,13 @@ Pour le **inline css**, respecter les conventions:
 - si nom de propriété composé, alors **camelCase**
 
 La balise **`template`** sert à faire des **rendus conditionnels de groupe**. Cette balaise n'apparaît pas dans le DOM.
+
+`v-for` est une directive permettant de faire **une boucle for**
+Pour afficher les tableaux d'objets, il faut faire un v-for dans un v-for ex:
+
+    		<ul>
+			<!-- syntaxe pour afficher les tableaux d'objets -->
+			<li v-for="item in japanMovie">
+				<div v-for="(val, props) in item">{{props}} : {{val}}</div>
+			</li>
+		    </ul>

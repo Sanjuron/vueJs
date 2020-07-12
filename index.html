@@ -12,14 +12,27 @@
 		<h1>Cours Vue js</h1>
 		<button v-on:click='togglebox = !togglebox'>Toggle la box</button>
 
-		<template v-if="togglebox">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-		</template>
+		<ul>
+			<!-- syntaxe pour la boucle for "i in array" -->
+			<li v-for="number in array"> {{number}}</li>
+		</ul>
 
+		<ul>
+			<!-- syntaxe pour afficher les indexs -->
+			<li v-for="(kuro, i) in kuroArray">{{i}} : {{kuro}}</li>
+		</ul>
+
+		<ul>
+			<!-- syntaxe pour afficher les propriétés et valeurs d'un objet -->
+			<li v-for="(val, props) in objCat">{{props}} : {{val}}</li>
+		</ul>
+
+		<ul>
+			<!-- syntaxe pour afficher les tableaux d'objets -->
+			<li v-for="item in japanMovie">
+				<div v-for="(val, props) in item">{{props}} : {{val}}</div>
+			</li>
+		</ul>
 		
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -31,6 +44,17 @@
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				togglebox: true,
+				array: [1,2,3,4,5],
+				kuroArray: ["dodes", "ran", "nora", "ikiru"],
+				objCat: {
+					race: "angora",
+					age: 5,
+					poids: "3kg",
+				},
+				japanMovie: [
+					{director: "Akira Kurosawa", movie: "Barberousse"},
+					{director: " Kenji Mizoguchi", movie: "L'intendant Sansho"},
+				]				
 			},	
 		})
 	</script>
