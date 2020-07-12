@@ -12,15 +12,14 @@
 		<h1>Cours Vue js</h1>
 		<button v-on:click='togglebox = !togglebox'>Toggle la box</button>
 
-		<!-- v-if affiche si true / else si non. Les deux doivent être collés l'un à l'autre. Si quelque chose entre, alors ça ne fonctionne pas -->
-		<div v-if="togglebox" class="box red"></div>
-		<p v-else="togglebox">Else</p>
+		<template v-if="togglebox">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</template>
 
-		<!-- s'affiche en fonction de la valeur de num dans datas. -->
-		<p v-if="num === 1">La valeur est 1</p>
-		<p v-else-if="num === 2">La valeur est 2</p>
-		<p v-else-if="num === 3">La valeur est 3</p>
-		<p v-else>Ni un, ni deux, ni trois</p>
 		
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
@@ -31,8 +30,7 @@
 			el: '#mon-app',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				num: 2,
-				togglebox: false,
+				togglebox: true,
 			},	
 		})
 	</script>

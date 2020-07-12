@@ -68,3 +68,5 @@ Les Key Modifiers
 Pour le **inline css**, respecter les conventions:
 - varialbe entre **guillemets**, valeur de lapropriété entre **apostrophes**
 - si nom de propriété composé, alors **camelCase**
+
+La balise **`template`** sert à faire des **rendus conditionnels de groupe**. Cette balaise n'apparaît pas dans le DOM.
