@@ -11,10 +11,8 @@
 	<div id="mon-app">
 		<h1>Cours Vue js</h1>
 		<button v-on:click='toggleColor = !toggleColor'>Toggle la couleur</button>
-		<!-- classe dynamique qui ne s'active que lorsque toggleColor est true -->
-		<div class="box" 
-			v-bind:class="{red : toggleColor}"
-			>			
+		<!-- on peut mettre la fonction dans un tableau, pour ajouter des propriétés supplément et même des ternaires -->
+		<div v-bind:class="[objCSS, toggleColor ? 'border' : '']">			
 		</div>
 	
 	</div>
@@ -26,8 +24,18 @@
 			el: '#mon-app',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
-				toggleColor: false,								
+				toggleColor: false,
 			},	
+			computed : {
+				// ne s'active que lorsque la condition est vérifiée
+				objCSS: function(){
+					return {
+						// récupère toggleColor et associe à box
+						red: this.toggleColor,
+						box: true
+					}
+				}
+			}
 		})
 	</script>
 
