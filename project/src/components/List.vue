@@ -1,8 +1,11 @@
 <template>
+<div>
 <ul class="liste">
     <!-- v-bind pour créer un index à chaque fruit ainsi chaque el a une clé unique -->
     <li v-for='(fruits, index) in fruits' v-bind:key='index'>{{fruits}}</li>
 </ul>
+<p>{{firstname}}</p>
+</div> 
 </template>
 
 <script>
@@ -13,6 +16,15 @@
             return{
                 fruits : ['orange', 'banane', 'fraise']
             }
+        },
+        props: {
+            firstname: {
+                type: String,
+                required: true
+            }
+        },
+        methods: {
+
         }
     }
 

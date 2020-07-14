@@ -3,7 +3,7 @@
     <p>
         {{txt}}
     </p>
-    <list></list>
+    <list v-bind:firstname="firstname"></list>
 </div>
 
 </template>
@@ -17,6 +17,7 @@
         data() {
             return {
                 txt: "je suis le contenu",
+                firstname: "sanjuron",
             }
         },
         components: {
