@@ -9,30 +9,42 @@
 
 <body>
 	<div id="mon-app1">
-		
-		
+		<!-- Pour afficher les composantd -->
+		<my-first-component></my-first-component>		
+		<my-first-component></my-first-component>		
+		<my-first-component></my-first-component>	
 	</div>
 
 	<div id="mon-app2">
-		<h1>{{txt}}</h1>
-		<button v-on:click="func1()">Changer</button>
-		
+		<h1>{{txt}}</h1>	
+	
 	</div>
 <!-- inclure le cdn pour utiliser vue dans  -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 	<script>
+
+		//enregistre le composant de manière globale / Attention à la syntaxe
+		Vue.component('my-first-component', {
+			template: '<p>Mon premier composant {{name}} <button v-on:click="changeName">Changer nom</button> </p>',
+			data: function(){
+				return {
+					name: "Sanjuron",
+				}
+			},
+			methods: {
+				changeName : function(){
+					this.name = 'Yojimbo'
+				}			}
+		})
+
 		const inst1 = new Vue({
-			template: '<h1>{{txt}}</h1>',
+			el: '#mon-app1',
 			// ici, on met les variables qu'on réutilise dans la div entre accolades
 			data: {
 				txt: "Les films de Kurosawa"
 			},	
 		})
-
-		// pour monter le template d'une instance
-		inst1.$mount()
-		document.getElementById('mon-app1').appendChild(inst1.$el)
 
 		const inst2 = new Vue({
 			el: '#mon-app2',
@@ -51,3 +63,10 @@
 
 </body>
 </html>
+
+
+
+
+
+
+

@@ -80,3 +80,28 @@ Pour afficher les tableaux d'objets, il faut faire un v-for dans un v-for ex:
 				<div v-for="(val, props) in item">{{props}} : {{val}}</div>
 			</li>
 		    </ul>
+
+Quand on crée un **composant**, il faut le **register**, càd l'enregistrer. On peut le faire localement ou globablement.
+
+A l'intérieur d'un composant, la propriété `data` renvoie une fonction qui retourne un objet
+
+Vue Cli
+-------
+
+Pour installer Vue Cli de façon globale
+
+    npm i -g @vue/cli
+    yarn global add @vue/cli
+
+Pour créer un projet
+
+    vue create project-name
+    cd project-name
+    // pour lancer serveur
+    npm serve
+    yarn serve
+
+**Vetur** pour accéder aux snippets Vue
+
+
+Pour créer un composant dans Vue, il faut une balise **`template`**, **`script`** et **`style`**.
