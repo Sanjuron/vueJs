@@ -1,11 +1,23 @@
 <template>
 <div>
 <ul class="liste">
-    <!-- v-bind pour créer un index à chaque fruit ainsi chaque el a une clé unique -->
-    <li v-for='(fruits, index) in fruits' v-bind:key='index'>{{fruits}}</li>
+    
+    <li v-for='(film, index) in myArr' v-bind:key='index'>
+        <div class="card">
+            <div class="card-body">
+        Titre: {{film.titre}}
+        <br>
+        Date: {{film.date}}
+        </div>
+        </div>
+    </li>
 </ul>
-<p>{{firstname}}</p>
+<p>{{txt}} </p>
+<div class="btn btn-danger mt-2" v-on:click="delMovie()">Supprime le film</div>
+<div class="btn btn-danger mt-2 ml-2" v-on:click="delTxt()">Supprime le txt</div>
+
 </div> 
+
 </template>
 
 <script>
@@ -17,15 +29,17 @@
                 fruits : ['orange', 'banane', 'fraise']
             }
         },
-        props: {
-            firstname: {
-                type: String,
-                required: true
-            }
-        },
         methods: {
-
-        }
+            delMovie: function(){
+                this.myArr.pop();
+            },
+            delTxt: function(){
+            this.myArr.pop();
+    },
+        },
+        //il faut recevoir les props
+        props: ['myArr', "txt"]
+         
     }
 
 </script>
