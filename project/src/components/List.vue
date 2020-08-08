@@ -15,6 +15,7 @@
 <p>{{txt}} </p>
 <div class="btn btn-danger mt-2" v-on:click="delMovie()">Supprime le film</div>
 <div class="btn btn-danger mt-2 ml-2" v-on:click="delTxt()">Supprime le txt</div>
+<div class="btn btn-danger mt-2 ml-2" v-on:click="changeTitle">Modifier le titre</div>
 
 </div> 
 
@@ -34,8 +35,11 @@
                 this.myArr.pop();
             },
             delTxt: function(){
-            this.myArr.pop();
-    },
+            this.txt="";
+            },
+            changeTitle: function(){
+                this.$emit('changeTitle', "Mon nouveau titre") //emit sert à créer un événement personnalisé auquel le parent peut écouter
+            }
         },
         //il faut recevoir les props
         props: ['myArr', "txt"]

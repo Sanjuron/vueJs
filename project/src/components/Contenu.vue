@@ -1,8 +1,8 @@
 <template>
 <div class="container mt-5">
 
-    <list v-bind:myArr="myArr" :txt="txt"></list>
-    <list v-bind:myArr="myArr" :txt="txt"></list>
+    <h1> {{title}} </h1>
+    <list v-bind:myArr="myArr" :txt="txt" v-on:changeTitle="changeTitle($event)"></list>
 </div>
 
 </template>
@@ -20,7 +20,13 @@
                     {titre: "Goodfellas", date: 1990},
                     {titre: "Barberousse", date: 1965},
                 ],
-                txt: 'Salut'
+                txt: 'Salut',
+                title: 'Ceci est un titre'
+            }
+        },
+        methods : {
+            changeTitle: function(newTitle){
+                this.title = newTitle;
             }
         },
         components: {
