@@ -17,10 +17,26 @@ export default {
             title: "Mon titre de base"
         }
     },
+    beforeCreate(){
+        console.log("il va être crée");
+    },
     created(){
+        console.log('le composant est créé');
         bus.$on('changeTitle', (data) => {
             this.title = data
         })
+    }, 
+    beforeMount(){
+        console.log('il va être monté dans le DOM');
+    },
+    mounted(){
+        console.log("il est intégré dans le DOM");
+    },
+    beforeUpdate(){
+        console.log("il va se mettre à jour");
+    },
+    updated(){
+        console.log("Le composant s'est bien mis à jour");
     }
 }
 
