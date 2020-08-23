@@ -16,7 +16,8 @@
 <div class="btn btn-danger mt-2" v-on:click="delMovie()">Supprime le film</div>
 <div class="btn btn-danger mt-2 ml-2" v-on:click="delTxt()">Supprime le txt</div>
 <div class="btn btn-danger mt-2 ml-2" v-on:click="changeTitle">Modifier le titre</div>
-
+    <slot></slot>
+    <slot name="info"></slot>
 </div> 
 
 </template>

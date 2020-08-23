@@ -2,7 +2,12 @@
 <div class="container mt-5">
 
     <h1> {{title}} </h1>
-    <list v-bind:myArr="myArr" :txt="txt" ></list>
+    <list v-bind:myArr="myArr" :txt="txt" >
+        Patientez
+        <template v-slot:info>
+                        <h1>Le contenu du slot nommé</h1>
+        </template>
+    </list>
 </div>
 
 </template>
