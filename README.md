@@ -106,6 +106,7 @@ Pour créer un projet
 
 Pour créer un composant dans Vue, il faut une balise **`template`**, **`script`** et **`style`**.
 
+Il est interdit de créer des composants qui aient des noms de balises html
 
 
 emit sert à créer un événement personnalisé auquel le parent peut écouter

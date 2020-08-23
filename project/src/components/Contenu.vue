@@ -2,7 +2,7 @@
 <div class="container mt-5">
 
     <h1> {{title}} </h1>
-    <list v-bind:myArr="myArr" :txt="txt" v-on:changeTitle="changeTitle($event)"></list>
+    <list v-bind:myArr="myArr" :txt="txt" ></list>
 </div>
 
 </template>
@@ -25,9 +25,9 @@
             }
         },
         methods : {
-            changeTitle: function(newTitle){
-                this.title = newTitle;
-            }
+            // changeTitle: function(newTitle){
+            //     this.title = newTitle;
+            // }
         },
         components: {
             'list': List
@@ -35,4 +35,8 @@
     }
 </script>
 
-<style></style>
+<style>
+h1{
+    margin-top : 100px!important;
+}
+</style>

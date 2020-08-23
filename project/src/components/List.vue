@@ -23,6 +23,8 @@
 
 <script>
 
+import {bus} from '../main';
+
     export default {
         name: "List",
         data(){
@@ -38,7 +40,8 @@
             this.txt="";
             },
             changeTitle: function(){
-                this.$emit('changeTitle', "Mon nouveau titre") //emit sert à créer un événement personnalisé auquel le parent peut écouter
+                // this.$emit('changeTitle', "Mon nouveau titre") //emit sert à créer un événement personnalisé auquel le parent peut écouter
+                bus.$emit('changeTitle', "Titre changé avec le bus")
             }
         },
         //il faut recevoir les props
